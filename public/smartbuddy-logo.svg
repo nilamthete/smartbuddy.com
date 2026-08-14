@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="sbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#35d58b" />
+      <stop offset="100%" stop-color="#063b2b" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#35d58b" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Rounded Shield Icon -->
+  <rect x="15" y="15" width="170" height="170" rx="45" fill="url(#sbGrad)" filter="url(#glow)"/>
+  <!-- Abstract S & B Buddy Spark Icon -->
+  <path d="M 65 68 C 65 52, 100 48, 135 62 C 145 66, 145 86, 125 92 L 95 98 C 75 104, 75 124, 95 132 C 120 142, 140 132, 140 132" 
+        fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Spark Dots -->
+  <circle cx="135" cy="58" r="8" fill="#35d58b" />
+  <circle cx="65" cy="140" r="8" fill="#35d58b" />
+</svg>
