@@ -43,12 +43,54 @@ const iconHover = {
 };
 
 const certs = [
-  { icon: "🎖️", title: "GeM 4.5★ Rated OEM", body: "Quality Council of India (QCI) approved OEM on Government e-Marketplace (GeM) portal with an outstanding rating of 4.5+.", color: "cert-blue" },
-  { icon: "🏅", title: "ISO 9001:2015 Certified", body: "International Standard Organization certification for Quality Management Systems — ensuring consistent product quality and customer satisfaction.", color: "cert-green" },
-  { icon: "⚙️", title: "CE Marked Products", body: "European Conformity (CE) marking on Electronic Eco Toilets and bio-digesters, meeting EU safety, health and environmental standards.", color: "cert-teal" },
-  { icon: "🌿", title: "MPCB Compliant", body: "Maharashtra Pollution Control Board compliant across all manufacturing processes and products — zero environmental compromise.", color: "cert-emerald" },
-  { icon: "🔬", title: "DRDO Licensed Tech", body: "DRDO (Defence Research and Development Organisation) licensed anaerobic microbial bio-digester technology deployed since 2004.", color: "cert-sky" },
-  { icon: "®", title: "Registered Trademark", body: "SMART BUDDY® and E T (Electronic Eco Toilet) are registered trade marks with the Government of India Intellectual Property Office.", color: "cert-indigo" },
+  {
+    icon: "🎖️",
+    title: "GeM 4.5★ Rated OEM",
+    badge: "GOVT PORTAL OEM",
+    body: "Quality Council of India (QCI) approved OEM on Government e-Marketplace (GeM) portal with an outstanding rating of 4.5+.",
+    specs: ["QCI Rating 4.5+", "Official Portal Vendor", "Trusted Govt. Supplier"],
+    color: "cert-blue"
+  },
+  {
+    icon: "🏅",
+    title: "ISO 9001:2015 Certified",
+    badge: "ISO COMPLIANT",
+    body: "International Standard Organization certification for Quality Management Systems — ensuring consistent product quality and customer satisfaction.",
+    specs: ["Quality Management", "Audited Processes", "Global Standard"],
+    color: "cert-green"
+  },
+  {
+    icon: "⚙️",
+    title: "CE Marked Products",
+    badge: "EUROPEAN SAFETY",
+    body: "European Conformity (CE) marking on Electronic Eco Toilets and bio-digesters, meeting EU safety, health and environmental standards.",
+    specs: ["EU Safety Certified", "Eco & Health Safe", "International Mark"],
+    color: "cert-teal"
+  },
+  {
+    icon: "🌿",
+    title: "MPCB Compliant",
+    badge: "POLLUTION BOARD",
+    body: "Maharashtra Pollution Control Board compliant across all manufacturing processes and products — zero environmental compromise.",
+    specs: ["Zero Harmful Waste", "State Pollution Audit", "Eco Sanitation"],
+    color: "cert-emerald"
+  },
+  {
+    icon: "🔬",
+    title: "DRDO Licensed Tech",
+    badge: "DEFENCE LICENSED",
+    body: "DRDO (Defence Research and Development Organisation) licensed anaerobic microbial bio-digester technology deployed since 2004.",
+    specs: ["Microbial Digestion", "DRDO Transfer Tech", "High Efficiency"],
+    color: "cert-sky"
+  },
+  {
+    icon: "®",
+    title: "Registered Trademark",
+    badge: "GOVT TM OFFICE",
+    body: "SMART BUDDY® and E T (Electronic Eco Toilet) are registered trade marks with the Government of India Intellectual Property Office.",
+    specs: ["Official Reg. Mark", "Intellectual Property", "Authentic Brand"],
+    color: "cert-indigo"
+  },
 ];
 
 export default function Certifications() {
@@ -95,13 +137,23 @@ export default function Certifications() {
               initial="rest"
               animate={inView ? "visible" : "hidden"}
             >
-              <motion.div className="cert-icon" variants={iconHover}>{c.icon}</motion.div>
+              <div className="cert-card-top-row">
+                <motion.div className="cert-icon" variants={iconHover}>{c.icon}</motion.div>
+                <span className="cert-badge">{c.badge}</span>
+              </div>
               <h3 className="cert-title">{c.title}</h3>
               <p className="cert-body">{c.body}</p>
+
+              <ul className="cert-specs-list">
+                {c.specs.map((spec, i) => (
+                  <li key={i}>
+                    <span className="spec-check">✓</span> {spec}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

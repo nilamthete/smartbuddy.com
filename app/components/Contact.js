@@ -19,76 +19,79 @@ export default function Contact() {
   return (
     <section id="contact" ref={ref} className="contact-section dark-section">
       <div className="container contact-container">
-
-        <motion.div
-          className="section-header"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <p className="section-label">GET IN TOUCH</p>
-          <h2>Contact <span>Aarya Innovtech &amp; Smart Buddy®</span></h2>
-          <p className="section-desc">
-            Connect with our technical team for custom sanitation, waste management, and bio-digester requirements.
-          </p>
-        </motion.div>
-
+        
         <div className="contact-layout-wrapper">
 
-          {/* Left: 2x2 Grid of 4 Info Cards */}
+          {/* Left Column: Inquiry Header + Badges + 4 Info Cards */}
           <motion.div
-            className="contact-cards-grid"
+            className="contact-left-col"
             variants={fadeUp}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             custom={1}
           >
-            {/* Card 1: CALL US */}
-            <div className="aarya-contact-card">
-              <div className="aarya-card-icon">📞</div>
-              <div className="aarya-card-content">
-                <span className="aarya-card-title">CALL US</span>
-                <p className="aarya-card-text">
-                  <a href="tel:+918806796868">+91 88067 96868</a> / <a href="tel:+919923810197">+91 9923810197</a>
-                </p>
-              </div>
+            <p className="contact-section-badge">✉ INQUIRY FORM</p>
+            <h2 className="contact-main-heading">Send your enquiry.</h2>
+            <p className="contact-main-desc">
+              Share your enquiry for Electronic ECO Toilet, Bio-Digester, Organic Waste Composter, PET Bottle Shredder, Computer Kiosk, Vending Machines.
+            </p>
+
+            {/* 3 Pill Badges */}
+            <div className="contact-feature-pills">
+              <span className="contact-pill"><span className="pill-check">✓</span> OEM since 2010</span>
+              <span className="contact-pill">🔧 Hygiene-sector product range</span>
+              <span className="contact-pill">🌐 Installed across India</span>
             </div>
 
-            {/* Card 2: EMAIL US */}
-            <div className="aarya-contact-card">
-              <div className="aarya-card-icon">✉️</div>
-              <div className="aarya-card-content">
-                <span className="aarya-card-title">EMAIL US</span>
-                <p className="aarya-card-text">
-                  <a href="mailto:sales@aaryainnovtech.com">sales@aaryainnovtech.com</a> / <a href="mailto:info@aaryainnovtech.com">info@aaryainnovtech.com</a>
-                </p>
+            {/* 2x2 Grid of 4 Info Cards */}
+            <div className="contact-cards-grid">
+              {/* Card 1: CALL US */}
+              <div className="aarya-contact-card">
+                <div className="aarya-card-icon">📞</div>
+                <div className="aarya-card-content">
+                  <span className="aarya-card-title">CALL US</span>
+                  <p className="aarya-card-text">
+                    <a href="tel:+918806796868">+91 88067 96868</a> / <a href="tel:+919923810197">+91 9923810197</a>
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* Card 3: REGD. OFFICE */}
-            <div className="aarya-contact-card">
-              <div className="aarya-card-icon">📍</div>
-              <div className="aarya-card-content">
-                <span className="aarya-card-title">REGD. OFFICE</span>
-                <p className="aarya-card-text">
-                  4A, Sayali Darshan A, Radha Nagar, Makhamalabad Road, Panchavati, Nashik - 422003
-                </p>
+              {/* Card 2: EMAIL US */}
+              <div className="aarya-contact-card">
+                <div className="aarya-card-icon">✉️</div>
+                <div className="aarya-card-content">
+                  <span className="aarya-card-title">EMAIL US</span>
+                  <p className="aarya-card-text">
+                    <a href="mailto:sales@aaryainnovtech.com">sales@aaryainnovtech.com</a>
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* Card 4: FACTORY */}
-            <div className="aarya-contact-card">
-              <div className="aarya-card-icon">🏭</div>
-              <div className="aarya-card-content">
-                <span className="aarya-card-title">FACTORY</span>
-                <p className="aarya-card-text">
-                  S-27, Near Emerson, Ambad MIDC, Nashik, Maharashtra - 422010
-                </p>
+              {/* Card 3: REGD. OFFICE */}
+              <div className="aarya-contact-card">
+                <div className="aarya-card-icon">📍</div>
+                <div className="aarya-card-content">
+                  <span className="aarya-card-title">REGD. OFFICE</span>
+                  <p className="aarya-card-text">
+                    4A, Sayali Darshan A, Radha Nagar, Makhamalabad Road, Panchavati, Nashik - 422003
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: FACTORY */}
+              <div className="aarya-contact-card">
+                <div className="aarya-card-icon">🏭</div>
+                <div className="aarya-card-content">
+                  <span className="aarya-card-title">FACTORY</span>
+                  <p className="aarya-card-text">
+                    S 27, Near Emerson, Ambad MIDC, Nashik, Maharashtra - 422010
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Clean Form Box */}
+          {/* Right Column: Clean White Form Box */}
           <motion.form
             className="aarya-form-card"
             variants={fadeUp}
@@ -100,24 +103,31 @@ export default function Contact() {
               alert("✅ Thank you! Your enquiry has been sent successfully. Our team will respond shortly.");
             }}
           >
+            <div className="form-card-header">
+              <span className="form-badge">PRODUCT ENQUIRY</span>
+              <h3 className="form-title">Send enquiry.</h3>
+              <p className="form-desc">
+                Share a few details and our team will guide you toward the right product.
+              </p>
+            </div>
+
             <div className="aarya-form-fields">
-              <div className="form-group">
-                <label>Your Name *</label>
-                <input type="text" placeholder="Enter your full name" required />
+              <div className="form-row-2col">
+                <div className="form-group">
+                  <label>YOUR NAME</label>
+                  <input type="text" placeholder="Full name" required />
+                </div>
+                <div className="form-group">
+                  <label>PHONE NUMBER</label>
+                  <input type="tel" placeholder="+91" required />
+                </div>
               </div>
+
               <div className="form-group">
-                <label>Email Address *</label>
-                <input type="email" placeholder="sales@yourcompany.com" required />
-              </div>
-              <div className="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" placeholder="+91 98765 43210" required />
-              </div>
-              <div className="form-group">
-                <label>Your Enquiry / Requirements *</label>
+                <label>HOW CAN WE HELP?</label>
                 <textarea
-                  rows={3}
-                  placeholder="Tell us about your project or product inquiry..."
+                  rows={4}
+                  placeholder="Tell us what you need"
                   required
                 />
               </div>
