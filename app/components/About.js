@@ -29,7 +29,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          style={{ textAlign: "center", marginBottom: "44px" }}
+          style={{ textAlign: "center", marginBottom: "24px" }}
         >
           <p className="section-label">ABOUT US</p>
           <h2 className="classic-about-title" style={{ fontSize: "clamp(34px, 4vw, 44px)", marginTop: "12px", marginBottom: "8px" }}>
@@ -43,13 +43,14 @@ export default function About() {
         {/* 2-column layout */}
         <div className="classic-about-grid">
 
-          {/* Left: Image Card Container */}
+          {/* Left: Image Column (Shifted slightly down) */}
           <motion.div
             className="about-mascot-col"
             variants={fadeUp}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             custom={0}
+            style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%", marginTop: "24px" }}
           >
             <div className="classic-mascot-wrapper">
               <img
@@ -61,7 +62,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: Clean Text Content */}
+          {/* Right: Text Information & Buttons */}
           <motion.div
             className="about-text-col classic-about-text"
             variants={fadeUp}
@@ -75,7 +76,7 @@ export default function About() {
               manufacturing &amp; supply of a comprehensive array of eco-friendly hygiene products.
               The Director of company have considerable experience in industrial automation &amp; hygiene products of 16 years.
               Our products are <strong>ELECTRONIC ECO TOILET, BIO-DIGESTER, ORGANIC WASTE COMPOSTER, VENDING MACHINES,
-              REVERSE VENDING MACHINE, SANITARY PAD INCINERATOR &amp; COMPUTER KIOSK</strong>. These are fabricated using
+                REVERSE VENDING MACHINE, SANITARY PAD INCINERATOR &amp; COMPUTER KIOSK</strong>. These are fabricated using
               advanced machines as per the international standards to ensure their reliable functioning.
             </p>
 
@@ -90,36 +91,25 @@ export default function About() {
             <p>
               SMART BUDDY is specialized in research &amp; development that focus mainly on manufacturing wide range of eco-friendly
               hygienic products with international quality. The company is strong believer in <strong>Total Quality Management,
-              Customer Focus &amp; Team Work</strong>, which led to its products having won several awards.
+                Customer Focus &amp; Team Work</strong>, which led to its products having won several awards.
               We are certified with <strong>ISO 9001:2015, CE &amp; MPCB</strong> also having brand name with registered
               trade mark <strong>&apos;SMART BUDDY&apos; &amp; E T (ELECTRONIC ECO TOILET)</strong>.
             </p>
 
-            {/* GeM Alert Box */}
-            <div className="about-gem-card">
-              <span className="gem-star">🎖️</span>
-              <p>
-                SMART BUDDY is authorized OEM approved by <strong>Quality Council of India (QCI)</strong> on
-                Government e-Marketplace (GeM) portal with ratings of <strong>4.5+</strong>.
-              </p>
+            {/* Buttons Placed Side-by-Side Right Below Text Information */}
+            <div className="about-cta-btns-row" style={{ display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap", gap: "14px", marginTop: "24px" }}>
+              <a href="/about" className="about-visit-btn" style={{ background: "linear-gradient(135deg, #059669 0%, #0284c7 100%)", color: "#ffffff", borderColor: "transparent" }}>
+                Explore Detailed About Us Page →
+              </a>
+              <a
+                href="https://aaryainnovtech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-visit-btn"
+              >
+                Visit Aarya Innovtech ↗
+              </a>
             </div>
-
-            <div className="about-tags" style={{ margin: "24px 0" }}>
-              <span className="about-tag">🌿 Est. 2004</span>
-              <span className="about-tag">🔬 DRDO Licensed</span>
-              <span className="about-tag">🏅 ISO 9001:2015</span>
-              <span className="about-tag">⚡ GeM 4.5★ OEM</span>
-              <span className="about-tag">🇮🇳 Make in India</span>
-            </div>
-
-            <a
-              href="https://aaryainnovtech.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="about-visit-btn"
-            >
-              Visit Aarya Innovtech — Our Company Website ↗
-            </a>
           </motion.div>
         </div>
 

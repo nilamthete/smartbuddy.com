@@ -16,12 +16,12 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About Us" },
-    { href: "#products", label: "Products" },
-    { href: "#why-us", label: "Why Smart Buddy" },
-    { href: "#certifications", label: "Certifications" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#home", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/#products", label: "Products" },
+    { href: "/#why-us", label: "Why Smart Buddy" },
+    { href: "/#certifications", label: "Certifications" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   const logoSrc = navLogo?.src || "/logo.png";

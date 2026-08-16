@@ -40,11 +40,11 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Quick Links</h4>
           <div className="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#products">Products</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Contact</a>
+            <a href="/#home">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/#products">Products</a>
+            <a href="/#certifications">Certifications</a>
+            <a href="/#contact">Contact</a>
           </div>
         </div>
 
