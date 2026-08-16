@@ -3836,3 +3836,73 @@ img {
   border-radius: 50%;
   animation: pulse-dot 2s infinite;
 }
+
+/* =============================================
+   MOBILE & TABLET RESPONSIVE STYLES FOR CONTACT SECTION & ENQUIRY FORM
+   ============================================= */
+@media (max-width: 1024px) {
+  .contact-layout-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .aarya-form-card {
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 0 50px !important;
+  }
+
+  .contact-main-heading {
+    font-size: 30px !important;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .aarya-contact-card {
+    padding: 18px 16px !important;
+  }
+
+  .aarya-form-card {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .form-title {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-feature-pills {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .contact-pill {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .aarya-form-card {
+    padding: 20px 16px !important;
+  }
+
+  .aarya-send-btn {
+    padding: 13px !important;
+    font-size: 14px !important;
+  }
+}
