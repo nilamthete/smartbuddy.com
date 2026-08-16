@@ -6,6 +6,9 @@ export default function Footer() {
   return (
     <footer className="footer">
 
+      {/* Thin Lime Green / Teal Accent Top Line */}
+      <div className="footer-accent-top-line" />
+
       <div className="container footer-grid">
 
         {/* Brand Column */}
@@ -13,65 +16,93 @@ export default function Footer() {
           <div className="footer-logo">
             <img
               src="/logo.png"
-              alt="Smart Buddy Logo"
+              alt="Aarya Innovtech Logo"
               className="footer-logo-img"
               onError={(e) => { e.currentTarget.src = "/smartbuddy-logo.svg"; }}
             />
           </div>
           <p className="footer-tagline">
-            Empowering Clean &amp; Smart India with eco-friendly sanitation, waste management and recycling innovations since 2004.
+            Redefining public hygiene infrastructure with engineered Aarya Innovtech solutions for sanitation, waste management, recycling, and digital utility access.
           </p>
-          <a
-            href="https://aaryainnovtech.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-main-link"
-          >
-            🌐 Visit Aarya Innovtech — Our Company Website ↗
-          </a>
-          <div className="footer-social-row">
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer" aria-label="Website">🌐</a>
-            <a href="mailto:info@aaryainnovtech.com" aria-label="Email">✉️</a>
-            <a href="tel:+919923810197" aria-label="Phone">📞</a>
+          <p className="footer-motto">
+            INNOVATE. INTEGRATE. ELEVATE.
+          </p>
+          <div className="footer-follow-box">
+            <span className="follow-title">FOLLOW US</span>
+            <div className="footer-social-row">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-circle">in</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-circle">📷</a>
+            </div>
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Column 2: EXPLORE */}
         <div className="footer-col">
-          <h4>Quick Links</h4>
+          <h4>EXPLORE</h4>
           <div className="footer-links">
-            <a href="/#home">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/#products">Products</a>
-            <a href="/#certifications">Certifications</a>
-            <a href="/#contact">Contact</a>
+            <a href="/#home">&rsaquo; Home</a>
+            <a href="/about">&rsaquo; About Us</a>
+            <a href="/#products">&rsaquo; Products</a>
+            <a href="/#certifications">&rsaquo; Certifications</a>
+            <a href="/#why-us">&rsaquo; Why Smart Buddy</a>
+            <a href="/#contact">&rsaquo; Contact</a>
           </div>
         </div>
 
-        {/* Products */}
+        {/* Column 3: PRODUCTS */}
         <div className="footer-col">
-          <h4>Smart Buddy Products</h4>
+          <h4>PRODUCTS</h4>
           <div className="footer-links">
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">🚽 E2T Eco Toilets</a>
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">🔬 DRDO Bio-Digesters</a>
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">♻️ Organic Composters</a>
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">🧴 Napkin Incinerators</a>
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">🥤 PET Vending RVM</a>
-            <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">🖥️ Computer Kiosks</a>
+            <a href="/#products">&rsaquo; Electronic ECO Toilet</a>
+            <a href="/#products">&rsaquo; Bio Digester</a>
+            <a href="/#products">&rsaquo; Organic Waste Composter</a>
+            <a href="/#products">&rsaquo; PET Bottle Shredder</a>
+            <a href="/#products">&rsaquo; Computer Kiosk</a>
+            <a href="/#products">&rsaquo; Vending Machines</a>
           </div>
         </div>
 
-        {/* Contact */}
-        <div className="footer-col">
-          <h4>Contact Us</h4>
-          <p className="footer-contact-item">📍 Works: D104/1, M.I.D.C. Ambad, Nashik — 422010</p>
-          <p className="footer-contact-item">🏢 Office: Panchavati, Nashik — 422003</p>
-          <p className="footer-contact-item">
-            📞 <a href="tel:+919923810197">+91 99238 10197</a> / <a href="tel:+918806796868">+91 88067 96868</a>
-          </p>
-          <p className="footer-contact-item">
-            ✉️ <a href="mailto:info@aaryainnovtech.com">info@aaryainnovtech.com</a>
-          </p>
+        {/* Column 4: GET IN TOUCH */}
+        <div className="footer-col footer-get-in-touch">
+          <h4>GET IN TOUCH</h4>
+          <div className="aarya-touch-item">
+            <div className="touch-icon-circle">📞</div>
+            <div>
+              <p className="touch-bold">
+                <a href="tel:+918806796868">+91 88067 96868</a> / <a href="tel:+919923810197">+91 9923810197</a>
+              </p>
+              <span className="touch-sub">Mon - Sat: 10:00 AM - 06:00 PM</span>
+            </div>
+          </div>
+
+          <div className="aarya-touch-item">
+            <div className="touch-icon-circle">✉️</div>
+            <div>
+              <p className="touch-bold">
+                <a href="mailto:sales@aaryainnovtech.com">sales@aaryainnovtech.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div className="aarya-touch-item">
+            <div className="touch-icon-circle">📍</div>
+            <div>
+              <span className="touch-label-title">Nashik Office</span>
+              <p className="touch-sub-address">
+                Flat No. 4A, Sayali Darshan A Wing, Panchavati, Nashik - 422003
+              </p>
+            </div>
+          </div>
+
+          <div className="aarya-touch-item">
+            <div className="touch-icon-circle">🏭</div>
+            <div>
+              <span className="touch-label-title">Factory</span>
+              <p className="touch-sub-address">
+                S-27, Near Emerson, Ambad MIDC, Nashik, Maharashtra - 422010
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -91,7 +122,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
-          <p>© {new Date().getFullYear()} Aarya Innovtech Pvt. Ltd. — Brand: SMART BUDDY®. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Copyright Aarya Innovtech Pvt. Ltd. All Rights Reserved.</p>
           <p className="footer-bottom-right">
             Made with 💙 in Nashik, Maharashtra, India |{" "}
             <a href="https://aaryainnovtech.com/" target="_blank" rel="noopener noreferrer">

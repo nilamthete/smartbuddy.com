@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import navLogo from "../../mywebsite/public/logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +17,31 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const navLinks = [
     { href: "/#home", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/#products", label: "Products" },
-    { href: "/#why-us", label: "Why Smart Buddy" },
     { href: "/#certifications", label: "Certifications" },
+    { href: "/#why-us", label: "Why Smart Buddy" },
     { href: "/#contact", label: "Contact" },
+  ];
+
+  const dropdownLinks = [
+    { href: "/about", label: "🏢 About Us" },
+    { href: "/#products", label: "📦 Products" },
+    { href: "/#certifications", label: "🏅 Certifications" },
+    { href: "/#why-us", label: "⚡ Why Smart Buddy" },
+    { href: "/#contact", label: "📞 Contact" },
   ];
 
   const logoSrc = navLogo?.src || "/logo.png";
@@ -39,7 +59,7 @@ export default function Header() {
             />
           </div>
           <div className="logo-text">
-            <span className="brand-main">AARYA TECHNOLOGIES</span>
+            <span className="brand-main">AARYA INNOVTECH</span>
             <span className="brand-sub">Brand: SMART BUDDY®</span>
           </div>
         </a>
@@ -55,7 +75,7 @@ export default function Header() {
             href="https://aaryainnovtech.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="nav-cta-btn"
+            className="nav-cta-btn nav-website-btn"
           >
             Main Website ↗
           </a>

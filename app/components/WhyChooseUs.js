@@ -3,13 +3,43 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 35 },
-  visible: (i = 0) => ({
+const headerVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
-  }),
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 50, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 110,
+      damping: 14,
+    },
+  },
+};
+
+const iconHover = {
+  rest: { scale: 1, rotate: 0 },
+  hover: { scale: 1.25, rotate: [0, -8, 8, -4, 0], transition: { duration: 0.4 } },
 };
 
 const credentials = [
@@ -39,6 +69,13 @@ const credentials = [
   },
 ];
 
+const highlights = [
+  { icon: "🌿", num: "16+", label: "Years Engineering Experience" },
+  { icon: "⚡", num: "4.5★", label: "GeM QCI Rated OEM" },
+  { icon: "🔬", num: "DRDO", label: "Licensed Bio-Digester Tech" },
+  { icon: "🇮🇳", num: "100%", label: "Indigenous Nashik Plant" },
+];
+
 export default function WhyChooseUs() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -49,40 +86,78 @@ export default function WhyChooseUs() {
       <div className="hero-orb why-orb-2" />
 
       <div className="container">
+        {/* Section Header Animation */}
         <motion.div
           className="section-header"
-          variants={fadeUp}
+          variants={headerVariant}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <p className="section-label">WHY SMART BUDDY®</p>
+          <motion.p 
+            className="section-label"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            WHY SMART BUDDY®
+          </motion.p>
           <h2>Pillars of Quality &amp; <span>National Trust</span></h2>
           <p className="section-desc">
             With over 16 years of engineering excellence, SMART BUDDY® by Aarya Technologies is trusted by Smart Cities, Municipal Corporations, Defense Establishments &amp; Highway Authorities across India.
           </p>
         </motion.div>
 
-        <div className="why-grid">
-          {credentials.map((item, idx) => (
+        {/* Staggered Cards Grid */}
+        <motion.div
+          className="why-grid"
+          variants={containerVariant}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {credentials.map((item) => (
             <motion.div
               key={item.title}
               className="why-card"
-              variants={fadeUp}
-              initial="hidden"
+              variants={cardVariant}
+              whileHover="hover"
+              initial="rest"
               animate={inView ? "visible" : "hidden"}
-              custom={idx * 0.4}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
             >
               <div className="why-card-top">
-                <span className="why-card-icon">{item.icon}</span>
+                <motion.span className="why-card-icon" variants={iconHover}>
+                  {item.icon}
+                </motion.span>
                 <span className="why-card-badge">{item.badge}</span>
               </div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Bottom Quick Highlight Counter Bar */}
+        <motion.div 
+          className="why-highlights-bar"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          {highlights.map((h) => (
+            <motion.div 
+              key={h.label} 
+              className="why-hl-chip"
+              whileHover={{ scale: 1.05, translateY: -3 }}
+            >
+              <span className="why-hl-icon">{h.icon}</span>
+              <div>
+                <strong className="why-hl-num">{h.num}</strong>
+                <span className="why-hl-text">{h.label}</span>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
+

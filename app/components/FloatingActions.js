@@ -3,28 +3,31 @@
 export default function FloatingActions() {
   return (
     <div className="floating-actions-container">
-      {/* WhatsApp Quick Connect */}
-      <a
-        href="https://wa.me/919923810197?text=Hello%20Smart%20Buddy%2C%20I%20am%20interested%20in%20your%20products."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-btn floating-whatsapp"
-        aria-label="Chat on WhatsApp"
-        title="Chat on WhatsApp"
-      >
-        <span className="float-icon">💬</span>
-        <span className="float-text">WhatsApp</span>
-      </a>
-
-      {/* Call Direct */}
+      {/* Call Floating Button */}
       <a
         href="tel:+919923810197"
-        className="floating-btn floating-call"
-        aria-label="Call Direct"
-        title="Call +91 99238 10197"
+        className="floating-circle-btn floating-call-circle"
+        aria-label="Call +91 9923810197"
+        title="Call Us: +91 99238 10197"
       >
-        <span className="float-icon">📞</span>
-        <span className="float-text">Call Us</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-3.7-1.11-3.56-2.3-3.56-3.53 0-.55-.45-1-1-1H3.03c-.55 0-1 .45-1 1C2.03 13.04 10.96 22 21.97 22c.55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"/>
+        </svg>
+      </a>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/919923810197?text=Hello%20Smart%20Buddy%20Team%2C%20I%20want%20to%20enquire%20about%20your%20products"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-circle-btn floating-wa-circle"
+        aria-label="Chat on WhatsApp"
+        title="Chat with us on WhatsApp"
+      >
+        <span className="wa-online-dot" />
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.98 9.98 0 004.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.038-5.176-2.925-7.062A9.925 9.925 0 0012.012 2zm0 18.15a8.303 8.303 0 01-4.24-1.163l-.304-.18-3.111.736.748-3.033-.198-.316A8.307 8.307 0 013.7 11.984c0-4.584 3.73-8.314 8.314-8.314 2.22 0 4.309.865 5.877 2.436a8.272 8.272 0 012.433 5.878c0 4.585-3.73 8.316-8.312 8.316zm4.558-6.223c-.25-.125-1.478-.729-1.707-.812-.229-.084-.396-.125-.562.125-.167.25-.646.812-.792.979-.146.167-.292.188-.542.063a6.852 6.852 0 01-2.01-1.239 7.56 7.56 0 01-1.39-1.732c-.146-.25-.016-.385.109-.51.113-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.562-1.354-.771-1.854-.204-.488-.412-.422-.562-.43-.146-.007-.313-.007-.479-.007-.167 0-.438.063-.667.313s-.875.854-.875 2.083c0 1.229.896 2.417 1.021 2.583.125.167 1.762 2.69 4.269 3.771.596.257 1.061.411 1.424.526.598.19 1.142.163 1.572.099.48-.071 1.478-.604 1.687-1.188.208-.583.208-1.083.146-1.188-.063-.104-.229-.167-.479-.292z"/>
+        </svg>
       </a>
     </div>
   );

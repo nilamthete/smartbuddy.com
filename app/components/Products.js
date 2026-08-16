@@ -3,14 +3,43 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 50, scale: 0.95 },
-  visible: (i = 0) => ({
+const headerVariant = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 45, scale: 0.94 },
+  visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { delay: i * 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  }),
+    transition: {
+      type: "spring",
+      stiffness: 110,
+      damping: 14,
+    },
+  },
+};
+
+const iconHover = {
+  rest: { scale: 1, rotate: 0 },
+  hover: { scale: 1.25, rotate: [0, -10, 10, -5, 0], transition: { duration: 0.4 } },
 };
 
 const products = [
@@ -70,38 +99,43 @@ export default function Products() {
       <div className="container">
         <motion.div
           className="section-header"
-          variants={fadeUp}
+          variants={headerVariant}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <p className="section-label">OUR PRODUCTS</p>
+          <motion.p 
+            className="section-label"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            OUR PRODUCTS
+          </motion.p>
           <h2>Smart Buddy <span>Product Range</span></h2>
           <p className="section-desc">
             Six certified product lines — engineered in Nashik, Maharashtra — delivering clean India solutions for sanitation, waste management and recycling.
           </p>
         </motion.div>
 
-        <div className="products-grid">
-          {products.map((p, i) => (
+        <motion.div 
+          className="products-grid"
+          variants={containerVariant}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {products.map((p) => (
             <motion.div
               key={p.title}
               className="product-card"
-              variants={fadeUp}
-              initial="hidden"
+              variants={cardVariant}
+              whileHover="hover"
+              initial="rest"
               animate={inView ? "visible" : "hidden"}
-              custom={i}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-                boxShadow: "0 22px 50px rgba(5, 150, 105, 0.18)",
-                borderColor: "#10b981",
-                transition: { duration: 0.25, ease: "easeOut" }
-              }}
               whileTap={{ scale: 0.98 }}
             >
               <motion.div
                 className="product-card-icon"
-                whileHover={{ scale: 1.2, rotate: 10, transition: { type: "spring", stiffness: 300 } }}
+                variants={iconHover}
               >
                 {p.icon}
               </motion.div>
@@ -115,15 +149,16 @@ export default function Products() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="product-card-btn"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Inquire Product ↗
               </motion.a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

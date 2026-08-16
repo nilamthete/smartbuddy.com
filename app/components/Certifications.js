@@ -3,13 +3,43 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 0) => ({
+const headerVariant = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.65, ease: "easeOut" },
-  }),
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 45, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 110,
+      damping: 14,
+    },
+  },
+};
+
+const iconHover = {
+  rest: { scale: 1, rotate: 0 },
+  hover: { scale: 1.25, rotate: [0, -8, 8, -4, 0], transition: { duration: 0.4 } },
 };
 
 const certs = [
@@ -32,36 +62,48 @@ export default function Certifications() {
 
         <motion.div
           className="section-header"
-          variants={fadeUp}
+          variants={headerVariant}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <p className="section-label">TRUSTED & CERTIFIED</p>
+          <motion.p 
+            className="section-label"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            TRUSTED &amp; CERTIFIED
+          </motion.p>
           <h2>Certifications &amp; <span>Credentials</span></h2>
           <p className="section-desc">
             Every Smart Buddy product is backed by internationally recognised certifications and government-approved quality standards.
           </p>
         </motion.div>
 
-        <div className="certs-grid">
-          {certs.map((c, i) => (
+        <motion.div 
+          className="certs-grid"
+          variants={containerVariant}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          {certs.map((c) => (
             <motion.div
               key={c.title}
               className={`cert-card ${c.color}`}
-              variants={fadeUp}
-              initial="hidden"
+              variants={cardVariant}
+              whileHover="hover"
+              initial="rest"
               animate={inView ? "visible" : "hidden"}
-              custom={i * 0.5}
-              whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
             >
-              <div className="cert-icon">{c.icon}</div>
+              <motion.div className="cert-icon" variants={iconHover}>{c.icon}</motion.div>
               <h3 className="cert-title">{c.title}</h3>
               <p className="cert-body">{c.body}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
   );
 }
+

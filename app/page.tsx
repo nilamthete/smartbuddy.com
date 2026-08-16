@@ -30,9 +30,9 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <WhyChooseUs />
         <Products />
         <Certifications />
+        <WhyChooseUs />
         <Contact />
       </main>
       <Footer />
